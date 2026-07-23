@@ -18,17 +18,16 @@ Used by the CDCS book stack (`DAGMakie.jl`, `CausalDynamics.jl`) as the dagitty-
 
 ## Upstream engagement (gates)
 
-Do **not** open issues or PRs against `mschauer/CausalInference.jl` until all gates below are green:
+Candidate PRs opened against `mschauer/CausalInference.jl` (2026-07-23):
 
-1. **DAGMakie 0.1.1** (viz-only + CausalInference weakdep) — tagged and Registrator submitted (2026-07-23); wait for General AutoMerge.
-2. **CausalDynamics 0.1.0** façades over CausalInference — tagged and Registrator submitted (2026-07-23); CI / book smoke still required after AutoMerge.
-3. Fork deltas in this file reviewed as worth upstreaming (especially GraphMakie `"0.5, 0.6"` — required before DAGMakie 0.1.1 and CausalDynamics can share a single registry test env with GraphMakie 0.6).
+- [#178](https://github.com/mschauer/CausalInference.jl/pull/178) — `sorted_union_` → `AbstractVector` (Graphs ≥1.14 `FrozenVector`)
+- [#179](https://github.com/mschauer/CausalInference.jl/pull/179) — GraphMakie weakdep compat `"0.5, 0.6"`
 
-Track candidate upstream items in this file only.
+Further fork-only work should still wait until DAGMakie 0.1.1 and CausalDynamics are on General and the CDCS stack has been smoke-tested.
 
 ## After both packages are on General
 
-1. Open upstream PRs for the deltas above (GraphMakie compat first).
+1. Land / follow up the PRs above (GraphMakie compat first for registry co-install with DAGMakie 0.1.1).
 2. Re-enable `DAGMakieCausalDynamicsExt` in a DAGMakie patch release once CausalDynamics is on General (symmetric extension already lives on the CausalDynamics side).
 3. Keep the CDCS **GraphMakie 0.6.3** pin and Makie 0.24.8 book pin unless explicitly approved to change.
 
