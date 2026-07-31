@@ -23,13 +23,18 @@ Candidate PRs opened against `mschauer/CausalInference.jl` (2026-07-23):
 - [#178](https://github.com/mschauer/CausalInference.jl/pull/178) — `sorted_union_` → `AbstractVector` (Graphs ≥1.14 `FrozenVector`)
 - [#179](https://github.com/mschauer/CausalInference.jl/pull/179) — GraphMakie weakdep compat `"0.5, 0.6"`
 
-Further fork-only work should still wait until DAGMakie 0.1.1 and CausalDynamics are on General and the CDCS stack has been smoke-tested.
+Further fork-only work should still wait until CausalDynamics is on General and
+the CDCS stack has been smoke-tested (DAGMakie is already on General).
 
-## After both packages are on General
+## After CausalDynamics is on General
 
-1. Land / follow up the PRs above (GraphMakie compat first for registry co-install with DAGMakie 0.1.1).
-2. Re-enable `DAGMakieCausalDynamicsExt` in a DAGMakie patch release once CausalDynamics is on General (symmetric extension already lives on the CausalDynamics side).
-3. Keep the CDCS **GraphMakie 0.6.3** pin and Makie 0.24.8 book pin unless explicitly approved to change.
+1. Land / follow up the PRs above (GraphMakie compat first for registry
+   co-install with DAGMakie).
+2. Re-enable `DAGMakieCausalDynamicsExt` in a DAGMakie patch release once
+   CausalDynamics is on General (symmetric extension already lives on the
+   CausalDynamics side).
+3. Keep the CDCS **GraphMakie 0.6.3** pin and Makie 0.24.8 book pin unless
+   explicitly approved to change.
 
 ## Local use
 
