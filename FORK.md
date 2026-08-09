@@ -13,7 +13,7 @@ Used by the CDCS book stack (`DAGMakie.jl`, `CausalDynamics.jl`) as the dagitty-
 
 ## CDCS-driven deltas vs upstream
 
-- Widen `[compat] GraphMakie` to `"0.5, 0.6"` so CDCS can resolve the local GraphMakie 0.6.3 fork alongside CausalInference as a DAGMakie test extra.
+- Widen `[compat] GraphMakie` to `"0.5, 0.6"` so CDCS can resolve the local GraphMakie 0.6.6 fork alongside CausalInference as a DAGMakie test extra.
 - `sorted_union_` accepts `AbstractVector` (not only `Vector`) so Zig-Zag / PDAG helpers work with Graphs ≥1.14 `FrozenVector` neighbour views.
 
 ## Upstream engagement (gates)
@@ -33,7 +33,7 @@ the CDCS stack has been smoke-tested (DAGMakie is already on General).
 2. Re-enable `DAGMakieCausalDynamicsExt` in a DAGMakie patch release once
    CausalDynamics is on General (symmetric extension already lives on the
    CausalDynamics side).
-3. Keep the CDCS **GraphMakie 0.6.3** pin and Makie 0.24.8 book pin unless
+3. Keep the CDCS **GraphMakie 0.6.6** pin and Makie 0.24.8 book pin unless
    explicitly approved to change.
 
 ## Local use
