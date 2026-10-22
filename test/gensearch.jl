@@ -48,6 +48,23 @@ Yvec = [4]
     @test Set(list_frontdoor_adjustment(g1, X, Y)) == Set([Set([3]), Set([7,2]), Set([7,2,3]), Set([7,3]), Set([2]), Set([2,3])]) 
 end
 
+@testset "frontdoor listing respects mandatory and eligible sets" begin
+    exposure, outcome = Set([1]), Set([4])
+    valid_sets = [Set([3]), Set([2, 7]), Set([2, 3, 7]),
+                  Set([3, 7]), Set([2]), Set([2, 3])]
+    eligible = [2, 3, 5, 6, 7]
+    # Enumerate all I ⊆ R constraints against independently stated valid sets.
+    # This includes impossible mandatory covariates and empty eligible sets.
+    for allowed_size in 0:length(eligible), allowed in combinations(eligible, allowed_size),
+        required_size in 0:length(allowed), required in combinations(allowed, required_size)
+        I, R = Set(required), Set(allowed)
+        expected = Set(Z for Z in valid_sets if issubset(I, Z) && issubset(Z, R))
+        actual = collect(list_frontdoor_adjustment(g1, exposure, outcome, I, R))
+        @test Set(actual) == expected
+        @test length(actual) == length(expected)
+    end
+end
+
 g2 = SimpleDiGraph(Edge.([(1, 3), (3, 6), (2, 5), (5, 8), (6, 7), (7, 8), (1, 4), (2, 4), (4, 6), (4, 8)]))
 X = Set(6)
 Y = Set(8)
