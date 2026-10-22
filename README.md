@@ -4,6 +4,8 @@
 
 # CausalInference.jl
 
+This package is part of the [CDCS Julia package set](https://github.com/SimonAB/causal-dynamics-book/tree/main/packages), which supports the [Causal Dynamics of Complex Systems book](https://simonab.github.io/causal-dynamics-book/).
+
 Julia package for causal inference and analysis, graphical models and structure learning.
 
 This package contains code for the PC algorithm and the extended FCI algorithm, the score based greedy equivalence search (GES) algorithm, the Bayesian Causal Zig-Zag sampler and a function suite for adjustment set search.
