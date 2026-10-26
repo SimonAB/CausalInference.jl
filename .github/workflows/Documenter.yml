@@ -1,11 +1,13 @@
 name: Documenter
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - master
   push:
     branches:
       - master
+      - frontdoor-list-enumerator
     tags: '*'
 jobs:
   docs:
